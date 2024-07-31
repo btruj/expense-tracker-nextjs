@@ -1,3 +1,4 @@
+import { addCommas } from "@/lib/utils";
 import getIncomeExpense from "@/app/actions/getIncomeExpense";
 const IncomeExpense = async () => {
     const {income, expense} = await getIncomeExpense();
@@ -6,11 +7,11 @@ const IncomeExpense = async () => {
         <div className="inc-exp-container">
             <div>
                 <h4>Income</h4>
-                <p className="money plus">${income}</p>
+                <p className="money plus">${addCommas(Number(income?.toFixed(2)))}</p>
             </div>
             <div>
                 <h4>Expense</h4>
-                <p className="money minus">${expense}</p>
+                <p className="money minus">${addCommas(Number(expense?.toFixed(2)))}</p>
             </div>
         </div>
      );
